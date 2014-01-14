@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<body onload="prettyPrint();">
+		<div class="document" id="exercise-1">
+			<h1 class="title">Exercise 1</h1>
+
+			<p>
+				<strong>Readings.</strong>
+				" Lecture Notes 1.2-1.5"
+			</p>
+
+
+			<p> 
+				<strong>Q1.</strong> 
+
+				" Fill in the following function definition for adding "
+				<tt class="docutils literal">a</tt>
+				" to the absolute value of "
+				<tt class="docutils literal">b</tt>
+				", 
+				without calling "
+				<tt class="docutils literal">abs</tt>
+				":""
+			</p>
+
+			<pre class="literal-block">
+				" from operator import add, sub
+				def a_plus_abs_b(a, b):
+				    """Return a+abs(b), but without calling abs."""
+				    if ___:
+				        op = ____
+				    else:
+				        op = ____
+				    return op(a, b)
+				"
+			</pre>
+
+			<p> 
+				<strong>Q2.</strong> 
+
+				" Write a function that takes three positive numbers and returns the sum of the squares of the two larger numbers. Use only a single expression for the body of the function: "
+			</p>
+
+			<pre class="literal-block">
+				" def two_of_three(a, b, c):
+		    	"""Return x**2 + y**2, where x and y are the two largest of a, b, c."""
+		    	return ____
+				"
+			</pre>
+
+
+<p> 
+				<strong>Q3.</strong> 
+
+				" Write a "
+				<tt class="docutils literal">product</tt>
+				" function that returns the product of the values of a function for ""
+				<tt class="docutils literal">n</tt>
+				" natural number arguments. Show how to define the factorial function in terms of product:""
+			</p>
+
+			<pre class="literal-block">
+				" def product(n, term):
+    			"""Return the product of the first n terms in the sequence formed
+    			by applying term to the integers 1, ..., n.
+
+    			term -- a function that takes one argument
+    			"""
+				"
+			</pre>
+
+			<p> 
+				<strong>Q4.</strong> 
+
+				" Show that "
+				<tt class="docutils literal">product</tt>
+				" is an instance of a more general function, called accumulate, with the following signature:"
+			</p>
+
+			<pre class="literal-block">
+				" def accumulate(combiner, start, n, term):
+    			"""Return the result of combining the first n terms in a sequence."""
+    			"
+			</pre>
+
+		</div>
+	</body>
+</html>
