@@ -20,13 +20,12 @@
 
 			<pre class="literal-block">
 				def sum_elems(elem):
-    				if type(elem) == int:
-        				return elem
-    				else:
-        				return (sum_elems(elem[0]) + sum_elems(elem[1]))
-
-				pairs = ((1, 2), (3, 4))
-				total = sum_elems(pairs)
+				   if type(elem) == int:
+					   return elem
+				   else:
+    				  return (sum_elems(elem[0]) + sum_elems(elem[1]))
+    		     pairs = ((1, 2), (3, 4))
+    		     total = sum_elems(pairs)
 
 			</pre>
 
