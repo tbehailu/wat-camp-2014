@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<body onload="prettyPrint();">
-		<div class="document" id="exercise-1">
-			<h1 class="title">Exercise 1</h1>
+		<div class="document" id="exercise-2">
+			<h1 class="title">Exercise 2</h1>
 
 			<p>
 				<strong>Readings.</strong>
@@ -14,36 +14,55 @@
 			
 			<p> 
 				<strong>Q1.</strong> 
-
+				Draw environment diargram for the following:
 				
 			</p>
 
 			<pre class="literal-block">
-				
+				def sum_elems(elem):
+    				if type(elem) == int:
+        				return elem
+    				else:
+        				return (sum_elems(elem[0]) + sum_elems(elem[1]))
 
+				pairs = ((1, 2), (3, 4))
+				total = sum_elems(pairs)
 
 			</pre>
 
 			<p> 
-				<strong>Q2.</strong> 
-
+				<strong>Q2: Review</strong> 
+				Return the sum of the first n terms of a sequence.
 				 
 			</p>
 
 			<pre class="literal-block">
-				
+				def summation(n, term):
+    				"""Return the sum of the first n terms of a sequence.
+  
+    				>>> summation(5, lambda x: pow(x, 3))
+    				225
+    				"""
 				
 			</pre>
 
 
 			<p> 
 				<strong>Q3.</strong> 
-
+				Return a function that applies f twice.
 				
 			</p>
 
 			<pre class="literal-block">
-				
+				def double(f):
+    				"""Return a function that applies f twice.
+
+    				f -- a function that takes one argument
+
+    				>>> double(square)(2)
+   					16
+    				"""
+    				"*** YOUR CODE HERE ***"
 				    
 								
 			</pre>
@@ -51,52 +70,132 @@
 
 			<p> 
 				<strong>Q4.</strong> 
-
+				Count the number of occurrences of value in sequence s using a for-loop.
 				
 			</p>
 
 			<pre class="literal-block">
-				
-				
-			</pre>
-
-			<pre class="literal-block">
-				
+				def count(s, value):
+        			"""Count the number of occurrences of value in sequence s using a for-loop.
+        			>>> digits = 1, 8, 2, 8
+        			>>> count(digits, 8)
+        			2
+        			"""
 				
 			</pre>
 
 			<p> 
 				<strong>Q5.</strong> 
-
+				This is the definition of the rlist abstract data type.
 				
 			</p>
 
 			<pre class="literal-block">
-				
+				empty_rlist = None
+
+				def rlist(first, rest):
+    				"""Construct a recursive list from its first element and the rest."""
+    				return (first, rest)
+
+				def first(s):
+    				"""Return the first element of a recursive list s."""
+    				return s[0]
+
+				def rest(s):
+    				"""Return the rest of the elements of a recursive list s."""
+    				return s[1]
     			
 			</pre>
 
+
+			<p>
+				Write iterative and recursive functions that reverse a given recursive list, producing a new recursive list with the elements in reverse order. Use only the <pre class="literal-block">rlist</pre> constructor and <pre class="literal-block">first</pre> and <pre class="literal-block">rest</pre>selectors to manipulate recursive lists. (You may use helper functions, but do not duplicate the functionality of 
+				<pre class="literal-block">len_rlist</pre> or 
+				<pre class="literal-block">getitem_rlist</pre>.)
+			</p>
+
 			<pre class="literal-block">
-				
+				def reverse_rlist_iterative(s):
+    				"""Return a reversed version of a recursive list s.
+
+    				>>> primes = rlist(2, rlist(3, rlist(5, rlist(7, empty_rlist))))
+    				>>> reverse_rlist_iterative(primes)
+    				(7, (5, (3, (2, None))))
+    				"""
+    				"*** YOUR CODE HERE ***"
     			
 			</pre>
 
 
 			<pre class="literal-block">
-				
+				def reverse_rlist_recursive(s):
+    				"""Return a reversed version of a recursive list s.
+
+    				>>> primes = rlist(2, rlist(3, rlist(5, rlist(7, empty_rlist))))
+    				>>> reverse_rlist_recursive(primes)
+    				(7, (5, (3, (2, None))))
+    				"""
+    				"*** YOUR CODE HERE ***"
     			
 			</pre>
 
 
 			<p> 
 				<strong>Q6.</strong> 
+				Write a function that takes in a sequence and returns the index of the largest element in the sequence:
 			</p>
 
 			<pre class="literal-block">
-				
+				def index_largest(seq):
+    				"""Return the index of the largest element in the sequence.
+
+    				>>> index_largest([8, 5, 7, 3 ,1])
+    				0
+    				>>> index_largest((4, 3, 7, 2, 1))
+    				2
+    				"""
+    				assert len(seq) > 0
+    				"*** YOUR CODE HERE ***"
     			
 			</pre>
 
+
+			<p>
+				<strong>Q7.</strong> 
+				Create a class called VendingMachine that represents a vending machine for some product. A VendingMachine object doesn't actually return anything but strings describing its interactions. See the doctest below for examples.
+
+			</p>
+
+
+			<pre class="literal-block">
+
+				class VendingMachine(object):
+				    """A vending machine that vends some product for some price.
+
+				    >>> v = VendingMachine('crab', 10)
+				    >>> v.vend()
+				    'Machine is out of stock.'
+				    >>> v.restock(2)
+				    'Current crab stock: 2'
+				    >>> v.vend()
+				    'You must deposit $10 more.'
+				    >>> v.deposit(7)
+				    'Current balance: $7'
+				    >>> v.vend()
+				    'You must deposit $3 more.'
+				    >>> v.deposit(5)
+				    'Current balance: $12'
+				    >>> v.vend()
+				    'Here is your crab and $2 change.'
+				    >>> v.deposit(10)
+				    'Current balance: $10'
+				    >>> v.vend()
+				    'Here is your crab.'
+				    >>> v.deposit(15)
+				    'Machine is out of stock. Here is your $15.'
+				    """
+				    "*** YOUR CODE HERE ***"
+			</pre>
 		</div>
 	</body>
 </html>
