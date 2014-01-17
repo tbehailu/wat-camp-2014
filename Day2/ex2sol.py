@@ -52,7 +52,7 @@ def count(s, value):
     for elem in s:
         if elem == value:
             total = total + 1
-        return total
+    return total
 
 # Q5.
 
