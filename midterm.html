@@ -1,0 +1,192 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<body onload="prettyPrint();">
+		<div class="document" id="midterm">
+			<h1 class="title">Midterm</h1>
+			
+			<a class="butt" href="F13MT1.pdf" title="F13MT1">
+				<strong>1-2 solutions</strong>
+			</a>
+
+			<a class="butt" href="midterm.py" title="midterm.py">
+				<strong>3-5 solutions</strong>
+			</a>
+
+			<p> 
+				<strong>Q1: Dog Goes Woof (F13 MT1)</strong> 
+
+				<br>
+				For each of the following call expressions, write the value to which it evaluates and what would be output by the interactive Python interpreter. The first two have been provided as examples.
+				Assume that you have started Python 3 and executed the following statements:
+
+			</p>
+
+			<pre class="literal-block">
+			
+				from operator import add , mul 
+				def square(x):
+					return mul(x, x)
+				def dog(bird):
+					def cow(tweet, moo):
+						woof = bird(tweet) 
+						print(moo)
+						return woof
+					return cow 
+				cat = dog(square)
+			
+			_________________________________________________
+			<br>
+				>>> square(5)
+				Evaluates to: 25
+				Interactive Output: 25
+
+				>>> 1/0
+				Evaluates to: Error
+				Interactive Output: Error
+
+				>>> add(square(2), mul(3, 4))
+
+				>>> print(print(print(2)))
+
+				>>> cat(3, 4)
+
+				>>> square(cat(5))
+
+				>>> cat(square(2), print(5))
+
+				>>> cat(print(square(3)), 8)
+
+			</pre>
+
+			<p> 
+				<strong>Q2: Environment Diagram (F13 MT1)</strong> 
+				<br>
+				Fill in the environment diagram that results from executing the code below until the entire program is finished, an error occurs.
+				 
+			</p>
+
+			<pre class="literal-block">
+				def mouse(n):
+    				if n >= 10:
+        				squeak = n // 100
+        				n = frog(squeak) + n % 10
+    				return n
+				def frog(croak):
+				    if croak == 0:
+				        return 1
+				    else:
+				        return 10 * mouse(croak+1)
+				
+				mouse(357)
+				
+			</pre>
+
+			<i>Note: The modulo symbol (%) means to get the remainder. Example, 7%3=1. The double forward slash means floor division. Example, 10//3 = 3.</i>
+
+
+			<p> 
+				<strong>Q3: Function Definition (Sp13 MT1)</strong> 
+				<br>
+				A positive integer n is called abundant if the sum of its divisors (except n itself) is strictly larger than n.
+
+				It is called perfect if the sum of its divisors (except n itself) is exactly equal to n. Finally, n is deficient if the sum of its divisors (excluding n) is strictly less than n. Write a function that returns the string 'abundant' if the input n is abundant, 'perfect' if n is perfect, and 'deficient' if n is deficient. You may call sum_divisors and assume that it works correctly.
+
+			</p>
+
+			<pre class="literal-block">
+				
+				def describe ( n ):
+				""" Returns whether n is abundant , perfect , or deficient .
+				>>> describe (4) # 1 + 2 < 4
+				'deficient '
+				"""
+								
+			</pre>
+
+
+			<p> 
+				<strong>Q4 (SP13 HW5)</strong> 
+
+				<br>
+				Write recursive and iterative functions that take two recursive lists and produce a new recursive list with their elements interleaved. In other words, the resulting list should have the first element of the first list, the first of the second, the second element of the first list, the second of the second, and so on. If the two lists are not the same size, then the leftover elements of the longer list should still appear at the end. The same restrictions as in Q1 apply here.
+			</p>
+
+
+			<p>
+				Recall the rlist implementation:
+
+			</p>
+				<pre class="literal-block">
+				empty_rlist = None
+
+				def rlist(first, rest):
+				    """Construct a recursive list from its first element and the
+				    rest."""
+				    return (first, rest)
+
+				def first(s):
+				    """Return the first element of a recursive list s."""
+				    return s[0]
+
+				def rest(s):
+				    """Return the rest of the elements of a recursive list s."""
+				    return s[1]
+
+			</pre>
+
+			<pre class="literal-block">
+				def interleave_recursive(s0, s1):
+				    """Interleave recursive lists s0 and s1 to produce a new recursive
+				    list.
+
+				    >>> evens = rlist(2, rlist(4, rlist(6, rlist(8, empty_rlist))))
+				    >>> odds = rlist(1, rlist(3, empty_rlist))
+				    >>> interleave_recursive(odds, evens)
+				    (1, (2, (3, (4, (6, (8, None))))))
+				    >>> interleave_recursive(evens, odds)
+				    (2, (1, (4, (3, (6, (8, None))))))
+				    >>> interleave_recursive(odds, odds)
+				    (1, (1, (3, (3, None))))
+				    """
+				    "*** YOUR CODE HERE ***"
+				
+			</pre>
+
+			
+				<strong>Q5 (SP13 HW1)</strong> 
+				<br>
+				Douglas Hofstadter's Pulitzer-prize-winning book, Godel, Escher, Bach, poses the following mathematical puzzle.
+
+				Pick a positive integer n as the start.
+				If n is even, divide it by 2.
+				If n is odd, multipy it by 3 and add 1.
+				Continue this process until n is 1.
+				The number n will travel up and down but eventually end at 1 (at least for all numbers that have ever been tried -- nobody has ever proved that the sequence will terminate). Analogously, hailstone travels up and down in the atmosphere before eventually landing on earth.
+
+				The sequence of values of n is often called a Hailstone sequence, because hailstones also travel up and down in the atmosphere before falling to earth. Write a function that takes a single argument with formal parameter name n, prints out the hailstone sequence starting at n, and returns the number of steps in the sequence.
+
+				Hailstone sequences can get quite long! Try 27. What's the longest you can find? Fill in your solution below:
+
+
+
+			<pre class="literal-block">
+				def hailstone(n):
+				    """Print the hailstone sequence starting at n and return its length.
+
+				    >>> a = hailstone(10)  # Seven elements are 10, 5, 16, 8, 4, 2, 1
+				    10
+				    5
+				    16
+				    8
+				    4
+				    2
+				    1
+				    >>> a
+				    7
+				    """
+				    "*** YOUR CODE HERE ***"
+    			
+			</pre>
+
+		</div>
+	</body>
+</html>
